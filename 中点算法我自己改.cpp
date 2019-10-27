@@ -1,4 +1,4 @@
-﻿//绘制斜率大于0且小于1的线段
+//绘制斜率大于0且小于1的线段
 #include <GL/glut.h>
 #include <iostream>//输入输出流
 #include <cmath>//包含了数学函数
@@ -15,38 +15,38 @@ void init()
 void display()
 //算法条件：x1>x0,y1>y0,x1-x0>y1-y0,,斜率大于0小于1
 {
-	//int x0 = 10, y0 = 10, x1 = 150, y1 = 100;
 	int x0, y0, x1, y1;
-	cout << "please enter the positions of start point and the end point:x1,y1,x2,y2:" << endl;
+	cout << "请输入起点和终点坐标:x1,y1,x2,y2:" << endl;
 	cin >> x0 >> y0 >> x1 >> y1;
-	int a = y0 - y1, b = x1 - x0;//a=-▲y b=▲x
-	int d = 2 * a + b;//-dm=2*a+b
+	int a = y1 - y0, b = x1 - x0;//▲y=a ▲x=b
+	int d = 2 * a - b;//dm=2*a-b
 	int x = x0, y = y0;
-	
+
 	glClear(GL_COLOR_BUFFER_BIT);//深度清除缓冲区
 	glColor3f(1.0, 0.0, 0.0);//设置为红色
 	glBegin(GL_POINTS);//开始画点
 	glVertex2i(x, y);
 	while (x <= x1) {
 		glVertex2i(x, y);
-		if (d < 0) {//-dm<0 dm>0 则dm=dm+p2 等价于dm=dm+2*a+2*b ,y自增
-			d = d + 2 * (a + b);
-			y++;
+		if (d <= 0) {//dm<=0
+			d = d + 2 * a;//dm=dm+2*a
+			
 		}
 		else {
-			d += 2 * a;//dm<0 dm=dm+p1 dm=dm+2*a,x自增
+			d =d+ 2 * a-2 * b;//dm=dm+2*a-2*b
+			y=y+1;
 		}
 		x++;
 	}
-	
-	
-	
 
 
 
-	for (y0 == y1;x<x1;x++)
+
+
+
+	for (y0 == y1; x < x1; x++)
 		x = x + 1;
-	
+
 
 
 	glEnd();
