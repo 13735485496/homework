@@ -148,7 +148,7 @@ void myKeyBoard(unsigned char key, int x, int y) {//键盘控制函数切割
 }
 
 void display(void) {//绘制图像
-	double cd[8] = { 100, 50, 100, 500, 400, 400, 350, 200 };
+	double cd[8] = { 100, 100, 100, 400, 400, 400, 400, 100 };
 	double line[4] = { 20, 20, 480, 480 };
 	double line1[4] = { 200, 300, 300, 200 };
 	double line2[4] = { 20, 80, 40, 10 };
